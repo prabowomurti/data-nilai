@@ -6,6 +6,35 @@ using namespace std;
 
 char choice;
 
+struct Mahasiswa {
+    string nim;
+    string nama;
+    string jurusan;
+};
+
+struct MataKuliah {
+    string kode;
+    string nama;
+    int sks;
+};
+
+struct Nilai {
+    string nim;
+    string kodeMataKuliah;
+    int nilaiUTS;
+    int nilaiTugas;
+    int nilaiUAS;
+    int nilaiAkhir;
+    char grade;
+};
+
+Mahasiswa listMahasiswa[1000];
+int numOfMahasiswa = 0;
+MataKuliah listMataKuliah[100];
+int numOfMataKuliah = 0;
+Nilai listNilai[1000];
+int numOfNilai = 0; // hold the number(count) of nilai data rows
+
 // menuliskan header diapit separator
 void tulisHeader(string title) {
     int length = title.length() + 10;
