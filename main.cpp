@@ -54,19 +54,146 @@ void tampilkanMenuUtama() {
     cout << "Masukkan Pilihan [1..5] : ";
 }
 
+// display menu to input data Mahasiswa
 void inputMahasiswa()
-{
-    tulisHeader("INPUT DATA MAHASISWA");
+{   
+    char subMenuChoice;
+
+    do {
+        tulisHeader("INPUT DATA MAHASISWA");
+
+        cout << "Input Nilai Mahasiswa: " + to_string(numOfMahasiswa + 1) << endl;
+        cout << "NIM : ";
+        cin >> listMahasiswa[numOfMahasiswa].nim;
+        cout << "Nama : ";
+        getline(cin >> ws, listMahasiswa[numOfMahasiswa].nama);
+        cout << "Jurusan : ";
+        getline(cin >> ws, listMahasiswa[numOfMahasiswa].jurusan);
+
+        numOfMahasiswa++;
+
+        cout << "Tambahkan Mahasiswa Lagi? [y/n] : ";
+        cin >> subMenuChoice;
+
+    } while (subMenuChoice != 'n');
+
 }
 
+// display menu to input MataKuliah
 void inputMataKuliah()
 {
-    tulisHeader("INPUT MATA KULIAH");
+    char subMenuChoice;
+
+    do {
+        tulisHeader("INPUT DATA MATA KULIAH");
+        cout << "Input Mata Kuliah: " + to_string(numOfMataKuliah + 1) << endl;
+        cout << "Kode Mata Kuliah : ";
+        cin >> listMataKuliah[numOfMataKuliah].kode;
+        cout << "Nama Mata Kuliah : ";
+        getline(cin >> ws, listMataKuliah[numOfMataKuliah].nama);
+        cout << "Bobot SKS : ";
+        cin >> listMataKuliah[numOfMataKuliah].sks;
+        
+        numOfMataKuliah++;
+
+        cout << "Tambahkan Mata Kuliah Lagi? [y/n] : ";
+        cin >> subMenuChoice;
+    } while (subMenuChoice != 'n');
 }
 
+// calculate nilaiAkhir based on UTS, Tugas, and UAS
+int calculateNilaiAkhir(int nilaiUTS, int nilaiTugas, int nilaiUAS)
+{
+    return (nilaiUTS * 30 / 100) + (nilaiTugas * 30 / 100) + (nilaiUAS * 40 / 100);
+}
+
+// calculate grade based on nilaiAkhir
+char calculateGrade(int nilaiAkhir) {
+    if (nilaiAkhir >= 85) {
+        return 'A';
+    } else if (nilaiAkhir >= 75) {
+        return 'B';
+    } else if (nilaiAkhir >= 60) {
+        return 'C';
+    } else if (nilaiAkhir >= 40) {
+        return 'D';
+    }
+
+    return 'E';
+}
+
+// show data input menu for Nilai Mahasiswa
 void inputNilaiMahasiswa()
 {
-    tulisHeader("INPUT NILAI MAHASISWA");
+    char subMenuChoice;
+    string nim;
+    string kodeMataKuliah;
+
+    do {
+        tulisHeader("INPUT DATA NILAI MAHASISWA");
+        cout << "Input Nilai Mahasiswa : " + to_string(numOfNilai + 1) << endl;
+        
+        cout << "Input NIM : ";
+        cin >> nim;
+
+        // search Mahasiswa by NIM
+        // TODO: move search to a function
+        for (int i = 0; i < numOfMahasiswa; i++) {
+            if (nim == listMahasiswa[i].nim) {
+                cout << "Nama : " << listMahasiswa[i].nama << endl;
+                cout << "Jurusan : " << listMahasiswa[i].jurusan << endl;
+
+                listNilai[numOfNilai].nim = nim;
+            }
+        }
+
+        if (listNilai[numOfNilai].nim == "") {
+            cout << "NIM tidak ditemukan" << endl;
+            continue;
+        }
+        
+        cout << "Kode Mata Kuliah : ";
+        cin >> kodeMataKuliah;
+
+        // search Mata Kuliah by Kode Mata Kuliah
+        // TODO: move search to a function
+        for (int i = 0; i < numOfMataKuliah; i++) {
+            if (kodeMataKuliah == listMataKuliah[i].kode) {
+                cout << "Nama Mata Kuliah : " << listMataKuliah[i].nama << endl;
+                cout << "Bobot SKS : " << listMataKuliah[i].sks << endl;
+                listNilai[numOfNilai].kodeMataKuliah = kodeMataKuliah;
+            }
+        }
+
+        if (listNilai[numOfNilai].kodeMataKuliah == "") {
+            cout << "Kode Mata Kuliah tidak ditemukan" << endl;
+            listNilai[numOfNilai].nim = "";
+            continue;
+        }
+
+        cout << "Nilai UTS : ";
+        cin >> listNilai[numOfNilai].nilaiUTS;
+        cout << "Nilai Tugas : ";
+        cin >> listNilai[numOfNilai].nilaiTugas;
+        cout << "Nilai UAS : ";
+        cin >> listNilai[numOfNilai].nilaiUAS;
+
+        listNilai[numOfNilai].nilaiAkhir = calculateNilaiAkhir(
+            listNilai[numOfNilai].nilaiUTS,
+            listNilai[numOfNilai].nilaiTugas,
+            listNilai[numOfNilai].nilaiUAS);
+
+        cout << "Nilai Akhir : " + to_string(listNilai[numOfNilai].nilaiAkhir) << endl;
+
+        listNilai[numOfNilai].grade = calculateGrade(listNilai[numOfNilai].nilaiAkhir);
+        cout << "Grade : " + to_string(listNilai[numOfNilai].grade) << endl;
+        
+        // success input nilai mahasiswa, increment the counter
+        numOfNilai++;
+        
+        cout << "Tambahkan Nilai Lagi? [y/n] : ";
+        cin >> subMenuChoice;
+    } while (subMenuChoice != 'n');
 }
 
 void tampilkanDaftarNilaiMahasiswa()
