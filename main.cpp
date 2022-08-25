@@ -186,7 +186,7 @@ void inputNilaiMahasiswa()
         cout << "Nilai Akhir : " + to_string(listNilai[numOfNilai].nilaiAkhir) << endl;
 
         listNilai[numOfNilai].grade = calculateGrade(listNilai[numOfNilai].nilaiAkhir);
-        cout << "Grade : " + to_string(listNilai[numOfNilai].grade) << endl;
+        cout << "Grade : " + string (1, listNilai[numOfNilai].grade) << endl;
         
         // success input nilai mahasiswa, increment the counter
         numOfNilai++;
