@@ -4,7 +4,7 @@
 
 using namespace std;
 
-int choice;
+char choice;
 
 // menuliskan header diapit separator
 void tulisHeader(string title) {
@@ -65,20 +65,20 @@ int main()
         // evaluate the choice
         switch (choice)
         {
-        case 1:
+        case '1':
             inputMahasiswa();
             break;
-        case 2:
+        case '2':
             inputMataKuliah();
             break;
-        case 3: 
+        case '3': 
             inputNilaiMahasiswa();
             break;
-        case 4:
+        case '4':
             tampilkanDaftarNilaiMahasiswa();
             break;
         
-        case 5: 
+        case '5': 
             cout << "Terima Kasih" << endl;
             break;
         
@@ -86,7 +86,7 @@ int main()
             cout << "Pilihan tidak tersedia" << endl;
         }
 
-    } while (choice != 5);
+    } while (choice != '5');
     
     return EXIT_SUCCESS;
 }
