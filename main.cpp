@@ -196,9 +196,68 @@ void inputNilaiMahasiswa()
     } while (subMenuChoice != 'n');
 }
 
-void tampilkanDaftarNilaiMahasiswa()
+int tampilkanDaftarNilaiMahasiswa()
 {
-    tulisHeader("TAMPILKAN DAFTAR NILAI MAHASISWA");
+    clitable::Table table;
+    clitable::Column c[12] = {
+        clitable::Column("NO", clitable::Column::CENTER_ALIGN, clitable::Column::LEFT_ALIGN, 1,4,clitable::Column::RESIZABLE),
+        clitable::Column("NIM", clitable::Column::CENTER_ALIGN, clitable::Column::LEFT_ALIGN, 1,7,clitable::Column::RESIZABLE),
+        clitable::Column("NAMA", clitable::Column::CENTER_ALIGN, clitable::Column::LEFT_ALIGN, 1,10,clitable::Column::RESIZABLE),
+        clitable::Column("JURUSAN", clitable::Column::CENTER_ALIGN, clitable::Column::LEFT_ALIGN, 1,10,clitable::Column::RESIZABLE),
+        clitable::Column("KODE MTK", clitable::Column::CENTER_ALIGN, clitable::Column::LEFT_ALIGN, 1,8,clitable::Column::RESIZABLE),
+        clitable::Column("NAMA MTK", clitable::Column::CENTER_ALIGN, clitable::Column::LEFT_ALIGN, 1,10,clitable::Column::RESIZABLE),
+        clitable::Column("SKS", clitable::Column::CENTER_ALIGN, clitable::Column::LEFT_ALIGN, 1,4,clitable::Column::RESIZABLE),
+        clitable::Column("UTS", clitable::Column::CENTER_ALIGN, clitable::Column::LEFT_ALIGN, 1,4,clitable::Column::RESIZABLE),
+        clitable::Column("TUGAS", clitable::Column::CENTER_ALIGN, clitable::Column::LEFT_ALIGN, 1,4,clitable::Column::RESIZABLE),
+        clitable::Column("UAS", clitable::Column::CENTER_ALIGN, clitable::Column::LEFT_ALIGN, 1,4,clitable::Column::RESIZABLE),
+        clitable::Column("AKHIR", clitable::Column::CENTER_ALIGN, clitable::Column::LEFT_ALIGN, 1,4,clitable::Column::RESIZABLE),
+        clitable::Column("GRADE", clitable::Column::CENTER_ALIGN, clitable::Column::LEFT_ALIGN, 1,4,clitable::Column::RESIZABLE)
+    };
+
+    string r[numOfNilai][12];
+
+    table.addTitle("DAFTAR NILAI MAHASISWA");
+
+    for (int i = 0; i < 12; i++) table.addColumn(c[i]);
+
+    for (int i = 0; i < numOfNilai; i++) {
+        r[i][0] = to_string(i + 1);
+        r[i][1] = listNilai[i].nim;
+
+        // search nama and jurusan by NIM
+        for (int j = 0; j < numOfMahasiswa; j++) {
+            if (listNilai[i].nim == listMahasiswa[j].nim) {
+                r[i][2] = listMahasiswa[j].nama;
+                r[i][3] = listMahasiswa[j].jurusan;
+            }
+        }
+
+        r[i][4] = listNilai[i].kodeMataKuliah;
+
+        // search nama and sks by Kode Mata Kuliah
+        for (int j = 0; j < numOfMataKuliah; j++) {
+            if (listNilai[i].kodeMataKuliah == listMataKuliah[j].kode) {
+                r[i][5] = listMataKuliah[j].nama;
+                r[i][6] = to_string(listMataKuliah[j].sks);
+            }
+        }
+
+        r[i][7] = to_string(listNilai[i].nilaiUTS);
+        r[i][8] = to_string(listNilai[i].nilaiTugas);
+        r[i][9] = to_string(listNilai[i].nilaiUAS);
+        r[i][10] = to_string(listNilai[i].nilaiAkhir);
+        r[i][11] = string (1, listNilai[i].grade);
+
+        table.addRow(r[i]);
+    }
+
+    cout << table.draw();
+    cout << "Tekan Enter untuk kembali ke Menu Utama... " << endl;
+    
+    // TODO: find a better way
+    system("read");
+
+    return 0;
 }
 
 int main()
