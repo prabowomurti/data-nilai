@@ -2129,8 +2129,8 @@
             },
             "visible": true,
             "shape": "trust-boundary-box",
-            "id": "9d0574a9-b139-41e3-8d2b-022683fd2443",
             "zIndex": -1,
+            "id": "9d0574a9-b139-41e3-8d2b-022683fd2443",
             "data": {
               "type": "tm.BoundaryBox",
               "name": "Trust Boundary",
@@ -2141,8 +2141,8 @@
           },
           {
             "position": {
-              "x": 140,
-              "y": 200
+              "x": 20,
+              "y": 180
             },
             "size": {
               "width": 112.5,
@@ -2425,77 +2425,6 @@
             "shape": "flow",
             "attrs": {
               "line": {
-                "stroke": "red",
-                "strokeWidth": 2.5,
-                "targetMarker": {
-                  "name": "block"
-                },
-                "sourceMarker": {
-                  "name": "block"
-                },
-                "strokeDasharray": null
-              }
-            },
-            "width": 200,
-            "height": 100,
-            "zIndex": 10,
-            "connector": "smooth",
-            "data": {
-              "type": "tm.Flow",
-              "name": "Data Flow",
-              "description": "",
-              "outOfScope": false,
-              "isTrustBoundary": false,
-              "reasonOutOfScope": "",
-              "hasOpenThreats": true,
-              "isBidirectional": true,
-              "isEncrypted": false,
-              "isPublicNetwork": true,
-              "protocol": "",
-              "threats": [
-                {
-                  "id": "835e5369-246d-4ac0-9902-a8afe391e1b1",
-                  "title": "API Flooding",
-                  "status": "Open",
-                  "severity": "High",
-                  "type": "Denial of service",
-                  "description": "Penyerang dapat menggunakan script untuk mengirim ribuan request per detik, membuat layanan menjadi lamban atau bahkan tidak bisa digunakan.",
-                  "mitigation": "- [SC-15] Implementasi API rate limiter\n- [SC-31] Menggunakan cache (karena daftar ISP jarang sekali berubah), memungkinkan data disimpan di Redis atau storage serupa\n- [SC-19] Penggugnaan layanan DDoS protection seperti AWS Shield, Cloudflare, dsb",
-                  "modelType": "STRIDE",
-                  "new": false,
-                  "number": 1,
-                  "score": "7.5"
-                }
-              ],
-              "threatFrequency": {
-                "tampering": 0,
-                "informationDisclosure": 0,
-                "denialOfService": 3
-              }
-            },
-            "labels": [
-              "Data Flow"
-            ],
-            "id": "17613872-b8de-4786-a133-7964f9c667f3",
-            "source": {
-              "x": 260,
-              "y": 230
-            },
-            "target": {
-              "cell": "2a1c4d7e-6adf-4f0c-bd0e-6e9076e2ad7c",
-              "port": "6a679dbe-6bfd-4508-a2c4-269ba0ac0213"
-            },
-            "vertices": [
-              {
-                "x": 400,
-                "y": 230
-              }
-            ]
-          },
-          {
-            "shape": "flow",
-            "attrs": {
-              "line": {
                 "stroke": "#333333",
                 "targetMarker": {
                   "name": "block"
@@ -2648,6 +2577,123 @@
             }
           },
           {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": true,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "835e5369-246d-4ac0-9902-a8afe391e1b1",
+                  "title": "API Flooding",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Denial of service",
+                  "description": "Penyerang dapat menggunakan script untuk mengirim ribuan request per detik, membuat layanan menjadi lamban atau bahkan tidak bisa digunakan.",
+                  "mitigation": "- [SC-15] Implementasi API rate limiter\n- [SC-31] Menggunakan cache (karena daftar ISP jarang sekali berubah), memungkinkan data disimpan di Redis atau storage serupa\n- [SC-19] Penggugnaan layanan DDoS protection seperti AWS Shield, Cloudflare, dsb",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": "7.5"
+                }
+              ],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 3
+              }
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "17613872-b8de-4786-a133-7964f9c667f3",
+            "source": {
+              "cell": "7981abbc-a501-4e37-88c9-51eba7c34b5f",
+              "port": "87fd5897-c83c-45fa-a2a1-1f7dcdaf0a7b"
+            },
+            "target": {
+              "cell": "2a1c4d7e-6adf-4f0c-bd0e-6e9076e2ad7c",
+              "port": "6a679dbe-6bfd-4508-a2c4-269ba0ac0213"
+            },
+            "vertices": [
+              {
+                "x": 410,
+                "y": 150
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Data Flow",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Data Flow"
+            ],
+            "id": "81a6df83-8f95-4538-b70c-4ae862b6d72e",
+            "source": {
+              "cell": "d5340902-ad0f-47e8-9655-e07913f03a2c",
+              "port": "2ae698b3-d3e1-4106-b8c2-effb26bc74c5"
+            },
+            "target": {
+              "cell": "7981abbc-a501-4e37-88c9-51eba7c34b5f",
+              "port": "8bb63de8-c056-4bcf-9c6e-6d3820e2f261"
+            },
+            "vertices": []
+          },
+          {
             "position": {
               "x": 680,
               "y": 320
@@ -2671,6 +2717,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 11,
             "ports": {
               "groups": {
                 "top": {
@@ -2754,7 +2801,6 @@
               ]
             },
             "id": "b2ef31cb-57cd-47dc-81f3-99ee703b5046",
-            "zIndex": 11,
             "data": {
               "type": "tm.Store",
               "name": "Redis Storage",
@@ -2795,6 +2841,7 @@
             },
             "visible": true,
             "shape": "store",
+            "zIndex": 12,
             "ports": {
               "groups": {
                 "top": {
@@ -2878,7 +2925,6 @@
               ]
             },
             "id": "6643158f-3d04-4413-83d2-0228e2402ddc",
-            "zIndex": 12,
             "data": {
               "type": "tm.Store",
               "name": "Main DB",
@@ -2916,6 +2962,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 13,
             "ports": {
               "groups": {
                 "top": {
@@ -2999,12 +3046,131 @@
               ]
             },
             "id": "67a04893-9eec-43f0-89ed-ea3d48c2adba",
-            "zIndex": 13,
             "data": {
               "type": "tm.Process",
               "name": "External API / PG",
               "description": "",
               "outOfScope": true,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 242,
+              "y": 180
+            },
+            "size": {
+              "width": 60,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Frontend"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "aa970398-a9a4-4c55-931c-12219b6dd48b"
+                },
+                {
+                  "group": "right",
+                  "id": "87fd5897-c83c-45fa-a2a1-1f7dcdaf0a7b"
+                },
+                {
+                  "group": "bottom",
+                  "id": "70b1c5db-41e3-45d4-84f9-4d9731871847"
+                },
+                {
+                  "group": "left",
+                  "id": "8bb63de8-c056-4bcf-9c6e-6d3820e2f261"
+                }
+              ]
+            },
+            "id": "7981abbc-a501-4e37-88c9-51eba7c34b5f",
+            "zIndex": 14,
+            "data": {
+              "type": "tm.Process",
+              "name": "Frontend",
+              "description": "",
+              "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": false,
