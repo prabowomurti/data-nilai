@@ -24,7 +24,7 @@
     "diagrams": [
       {
         "id": 0,
-        "title": "0 Registrasi & Login Logout",
+        "title": "01 Registrasi & Login Logout",
         "diagramType": "STRIDE",
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
@@ -1479,7 +1479,7 @@
       },
       {
         "id": 1,
-        "title": "Profile Pengguna",
+        "title": "02 Profile Pengguna",
         "diagramType": "STRIDE",
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
