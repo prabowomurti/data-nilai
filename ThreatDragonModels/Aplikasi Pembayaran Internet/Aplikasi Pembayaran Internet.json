@@ -24,7 +24,7 @@
     "diagrams": [
       {
         "id": 1,
-        "title": "Registrasi & Login",
+        "title": "01 Registrasi & Login",
         "diagramType": "STRIDE",
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
@@ -1184,7 +1184,7 @@
       },
       {
         "id": 1,
-        "title": "Profile Pengguna",
+        "title": "02 Profile Pengguna",
         "diagramType": "STRIDE",
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
@@ -2171,7 +2171,7 @@
       },
       {
         "id": 2,
-        "title": "Deposit Saldo (Top Up via Bank, E-Wallet, Kartu Kredit)",
+        "title": "03 Deposit Saldo (Top Up via Bank, E-Wallet, Kartu Kredit)",
         "diagramType": "STRIDE",
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
@@ -3365,7 +3365,7 @@
       },
       {
         "id": 3,
-        "title": "Pembayaran Internet / TV Kabel",
+        "title": "04 Pembayaran Internet / TV Kabel",
         "diagramType": "STRIDE",
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
@@ -4445,7 +4445,7 @@
       },
       {
         "id": 4,
-        "title": "Manajemen Transaksi",
+        "title": "05 Manajemen Transaksi",
         "diagramType": "STRIDE",
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
