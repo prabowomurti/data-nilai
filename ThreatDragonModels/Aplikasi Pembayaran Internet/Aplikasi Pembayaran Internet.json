@@ -24,7 +24,7 @@
     "diagrams": [
       {
         "id": 1,
-        "title": "01 Registrasi & Login Logout",
+        "title": "Registrasi & Login",
         "diagramType": "STRIDE",
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
@@ -1355,6 +1355,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 17,
             "ports": {
               "groups": {
                 "top": {
@@ -1438,7 +1439,6 @@
               ]
             },
             "id": "80f3173d-dd12-485d-8a59-911ba717222e",
-            "zIndex": 17,
             "data": {
               "type": "tm.Process",
               "name": "Frontend",
