@@ -1158,6 +1158,7 @@
             },
             "visible": true,
             "shape": "actor",
+            "zIndex": 1,
             "ports": {
               "groups": {
                 "top": {
@@ -1241,7 +1242,6 @@
               ]
             },
             "id": "d5340902-ad0f-47e8-9655-e07913f03a2c",
-            "zIndex": 1,
             "data": {
               "type": "tm.Actor",
               "name": "Actor",
@@ -1264,14 +1264,18 @@
               "height": 60
             },
             "attrs": {
+              "text": {
+                "text": "API"
+              },
               "body": {
-                "stroke": "#333333",
-                "strokeWidth": 1.5,
+                "stroke": "red",
+                "strokeWidth": 2.5,
                 "strokeDasharray": null
               }
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 2,
             "ports": {
               "groups": {
                 "top": {
@@ -1355,20 +1359,48 @@
               ]
             },
             "id": "2a1c4d7e-6adf-4f0c-bd0e-6e9076e2ad7c",
-            "zIndex": 2,
             "data": {
               "type": "tm.Process",
-              "name": "Process",
+              "name": "API",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
-              "hasOpenThreats": false,
+              "hasOpenThreats": true,
               "handlesCardPayment": false,
               "handlesGoodsOrServices": false,
               "isWebApplication": false,
               "privilegeLevel": "",
-              "threats": []
+              "threats": [
+                {
+                  "id": "9dbfefbd-b16b-4ff6-8589-f7fdcc72cfc6",
+                  "title": "Penggunaan ID Pengguna Palsu",
+                  "status": "Open",
+                  "severity": "Low",
+                  "type": "Spoofing",
+                  "description": "Penyerang dapat memasukkan data pengguna yang tidak valid, acak, dsb, dengan harapan memperoleh informasi pelanggan lainnya. Dapat berlanjut ke Information Disclosure.",
+                  "mitigation": "Validasi input, penggunaan CSRF token, dan penggunaan OTP / MFA saat melakukan pembayaran.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": "6.0"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -1381,7 +1413,7 @@
                   "name": "block"
                 },
                 "sourceMarker": {
-                  "name": ""
+                  "name": "block"
                 },
                 "strokeDasharray": null
               }
@@ -1398,29 +1430,29 @@
               "isTrustBoundary": false,
               "reasonOutOfScope": "",
               "hasOpenThreats": true,
-              "isBidirectional": false,
+              "isBidirectional": true,
               "isEncrypted": false,
-              "isPublicNetwork": false,
+              "isPublicNetwork": true,
               "protocol": "",
               "threats": [
                 {
                   "id": "835e5369-246d-4ac0-9902-a8afe391e1b1",
                   "title": "API Flooding",
                   "status": "Open",
-                  "severity": "Medium",
+                  "severity": "High",
                   "type": "Denial of service",
-                  "description": "No suggestions available for this context. Add one manually please",
-                  "mitigation": "Mitigations",
+                  "description": "Penyerang dapat menggunakan script untuk mengirim ribuan request per detik, membuat layanan menjadi lamban atau bahkan tidak bisa digunakan.",
+                  "mitigation": "- Implementasi API rate limiter\n- Menggunakan cache (karena daftar ISP jarang sekali berubah), memungkinkan data disimpan di Redis atau storage serupa\n- Penggugnaan layanan DDoS protection seperti AWS Shield, Cloudflare, dsb",
                   "modelType": "STRIDE",
                   "new": false,
                   "number": 1,
-                  "score": "8"
+                  "score": "7.5"
                 }
               ],
               "threatFrequency": {
                 "tampering": 0,
                 "informationDisclosure": 0,
-                "denialOfService": 1
+                "denialOfService": 2
               }
             },
             "labels": [
@@ -1451,6 +1483,6 @@
     ],
     "diagramTop": 6,
     "reviewer": "",
-    "threatTop": 1
+    "threatTop": 2
   }
 }
