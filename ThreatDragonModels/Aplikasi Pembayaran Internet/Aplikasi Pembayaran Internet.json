@@ -2264,7 +2264,7 @@
             },
             "attrs": {
               "text": {
-                "text": "API"
+                "text": "Backend"
               },
               "body": {
                 "stroke": "red",
@@ -2360,7 +2360,7 @@
             "id": "2a1c4d7e-6adf-4f0c-bd0e-6e9076e2ad7c",
             "data": {
               "type": "tm.Process",
-              "name": "API",
+              "name": "Backend",
               "description": "",
               "outOfScope": false,
               "isTrustBoundary": false,
@@ -2419,6 +2419,13 @@
                 "denialOfService": 0,
                 "elevationOfPrivilege": 0
               }
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
             }
           },
           {
@@ -3082,6 +3089,7 @@
             },
             "visible": true,
             "shape": "process",
+            "zIndex": 14,
             "ports": {
               "groups": {
                 "top": {
@@ -3165,7 +3173,6 @@
               ]
             },
             "id": "7981abbc-a501-4e37-88c9-51eba7c34b5f",
-            "zIndex": 14,
             "data": {
               "type": "tm.Process",
               "name": "Frontend",
