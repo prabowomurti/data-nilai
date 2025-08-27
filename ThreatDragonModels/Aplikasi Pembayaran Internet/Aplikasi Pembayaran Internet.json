@@ -1,0 +1,75 @@
+{
+  "version": "2.5.0",
+  "summary": {
+    "title": "Aplikasi Pembayaran Internet",
+    "owner": "Kelompok Doea",
+    "description": "",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [
+      {
+        "name": "Johan"
+      },
+      {
+        "name": "Henry"
+      },
+      {
+        "name": "Cahyo"
+      },
+      {
+        "name": "Prab"
+      }
+    ],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "Registrasi, Login dan Logout",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.5.0",
+        "cells": []
+      },
+      {
+        "id": 1,
+        "title": "Profile Pengguna",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.5.0",
+        "cells": []
+      },
+      {
+        "id": 2,
+        "title": "Deposit Saldo",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.5.0",
+        "cells": []
+      },
+      {
+        "id": 3,
+        "title": "Pembayaran Internet / TV Kabel",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.5.0",
+        "cells": []
+      },
+      {
+        "id": 4,
+        "title": "Manajemen Transaksi",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.5.0",
+        "cells": []
+      }
+    ],
+    "diagramTop": 6,
+    "reviewer": "",
+    "threatTop": 0
+  }
+}
