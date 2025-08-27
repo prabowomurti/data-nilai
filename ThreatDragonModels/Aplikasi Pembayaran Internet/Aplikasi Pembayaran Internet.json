@@ -23,13 +23,1164 @@
     ],
     "diagrams": [
       {
-        "id": 0,
-        "title": "Registrasi, Login dan Logout",
+        "id": 1,
+        "title": "Registrasi & Login",
         "diagramType": "STRIDE",
         "placeholder": "New STRIDE diagram description",
         "thumbnail": "./public/content/images/thumbnail.stride.jpg",
-        "version": "2.5.0",
-        "cells": []
+        "version": "2.4.1",
+        "description": "STRIDE untuk Registrasi & Login dengan nomor telepon dan OTP",
+        "cells": [
+          {
+            "position": {
+              "x": 481.25,
+              "y": -120
+            },
+            "size": {
+              "width": 590,
+              "height": 290
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "boundary-otp",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Trust Boundary",
+              "description": "Trust Boundary",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 540,
+              "y": -90
+            },
+            "size": {
+              "width": 120,
+              "height": 100
+            },
+            "attrs": {
+              "text": {
+                "text": "Backend"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 3,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "024bab42-ced1-4b51-b0e9-b35b099f5e43"
+                },
+                {
+                  "group": "right",
+                  "id": "0b81d6a2-5367-4d5c-875d-b6f2cd702c8b"
+                },
+                {
+                  "group": "bottom",
+                  "id": "37ed329e-f2c7-4d13-9740-4f7fba71354a"
+                },
+                {
+                  "group": "left",
+                  "id": "86e5d27a-8c38-46e1-b57c-d3f676b190bc"
+                }
+              ]
+            },
+            "id": "process-backend",
+            "data": {
+              "type": "tm.Process",
+              "name": "Backend",
+              "description": "Validasi OTP, simpan data, generate session",
+              "outOfScope": false,
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "threat-brute-force",
+                  "title": "Brute Force OTP",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Tampering",
+                  "description": "Percobaan OTP berulang.",
+                  "mitigation": "Rate limiting, lockout, kadaluwarsa OTP.",
+                  "modelType": "STRIDE",
+                  "score": "6"
+                },
+                {
+                  "id": "threat-session-hijack",
+                  "title": "Session Hijacking",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "ElevationOfPrivilege",
+                  "description": "Pencurian sesi pengguna.",
+                  "mitigation": "Session token terenkripsi, validasi session.",
+                  "modelType": "STRIDE",
+                  "score": "8"
+                }
+              ],
+              "handlesCardPayment": null,
+              "isWebApplication": null,
+              "threatFrequency": {
+                "spoofing": 0,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0,
+                "elevationOfPrivilege": 0
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 890,
+              "y": -70
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Database"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 4,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "9da0ea2b-355e-4f51-bc3e-639996a17889"
+                },
+                {
+                  "group": "right",
+                  "id": "e7a1dfdb-55ff-409a-bc8a-0551bd9b2072"
+                },
+                {
+                  "group": "bottom",
+                  "id": "943f6a80-e19d-4eb5-932a-eaf5e3fe5094"
+                },
+                {
+                  "group": "left",
+                  "id": "84cb06d5-b6a4-4fbc-b8f6-a3cdaaa0f966"
+                }
+              ]
+            },
+            "id": "store-db",
+            "data": {
+              "type": "tm.Store",
+              "name": "Database",
+              "description": "Menyimpan data user dan OTP",
+              "outOfScope": false,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Simpan & validasi OTP",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Simpan & validasi OTP"
+            ],
+            "id": "9993bc7d-c36a-40b8-b721-92045d9b280e",
+            "source": {
+              "cell": "process-backend",
+              "port": "0b81d6a2-5367-4d5c-875d-b6f2cd702c8b"
+            },
+            "target": {
+              "cell": "store-db",
+              "port": "84cb06d5-b6a4-4fbc-b8f6-a3cdaaa0f966"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Request OTP",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Request OTP"
+            ],
+            "id": "31d0295e-a5da-4fd2-9c97-cc9a324422bd",
+            "source": {
+              "cell": "process-backend",
+              "port": "0b81d6a2-5367-4d5c-875d-b6f2cd702c8b"
+            },
+            "target": {
+              "cell": "de5fb0c3-9f4a-4acf-b99d-51c544a551c7",
+              "port": "a9c50fa0-86ca-472b-b195-e564204a6e0c"
+            },
+            "vertices": [
+              {
+                "x": 780,
+                "y": -20
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Response OTP",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "threatFrequency": {
+                "tampering": 0,
+                "informationDisclosure": 0,
+                "denialOfService": 0
+              }
+            },
+            "labels": [
+              "Response OTP"
+            ],
+            "id": "148837af-6cc2-4dff-b4f9-692147325d1e",
+            "source": {
+              "cell": "de5fb0c3-9f4a-4acf-b99d-51c544a551c7",
+              "port": "77078f9c-69e2-46d1-9b56-bae607169fbb"
+            },
+            "target": {
+              "cell": "0b9f0c37-08a9-42d5-838e-da91eec07106",
+              "port": "17a22219-5c96-436a-b350-a6a30213124b"
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead",
+                "boundary",
+                "button-remove",
+                "vertices",
+                "source-arrowhead",
+                "target-arrowhead"
+              ],
+              "name": null
+            },
+            "vertices": [
+              {
+                "x": 1040,
+                "y": 190
+              },
+              {
+                "x": 640,
+                "y": 210
+              },
+              {
+                "x": 190,
+                "y": 210
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Store Session",
+              "description": "Session pengguna setelah login",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "Store Session"
+            ],
+            "id": "e71a22cd-b23f-4aa3-887e-a6133d0f325e",
+            "source": {
+              "cell": "process-backend",
+              "port": "37ed329e-f2c7-4d13-9740-4f7fba71354a"
+            },
+            "target": {
+              "cell": "8cb728e9-fc80-47bd-9505-8e41aecb0615",
+              "port": "ee0651ee-5ce8-4ede-bf2c-08c509f8acc2"
+            },
+            "vertices": [
+              {
+                "x": 650,
+                "y": 70
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Input nomor telepon & OTP",
+              "description": "User mengirim data ke form",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "source": "actor-user",
+              "target": "process-form"
+            },
+            "labels": [
+              "Input nomor telepon & OTP"
+            ],
+            "id": "flow-user-form",
+            "visible": true,
+            "source": {
+              "cell": "0b9f0c37-08a9-42d5-838e-da91eec07106",
+              "port": "917717c1-2c91-4b84-88cf-0ebc73460ba1"
+            },
+            "target": {
+              "cell": "61076da4-c051-4f50-8e4b-2c91270ed658",
+              "port": "fbd17456-ad64-428b-8174-f415cf7cd4ae"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": "block"
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Kirim data ke backend",
+              "description": "Form mengirim data ke backend",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": true,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [],
+              "source": "process-form",
+              "target": "process-backend"
+            },
+            "labels": [
+              "Kirim data ke backend"
+            ],
+            "id": "flow-form-backend",
+            "visible": true,
+            "source": {
+              "cell": "61076da4-c051-4f50-8e4b-2c91270ed658",
+              "port": "02566ba8-25c5-4195-80d8-c16f108489dd"
+            },
+            "target": {
+              "cell": "process-backend",
+              "port": "86e5d27a-8c38-46e1-b57c-d3f676b190bc"
+            },
+            "vertices": []
+          },
+          {
+            "position": {
+              "x": 1170,
+              "y": 30
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Thrid Party OTP"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 12,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "655735bd-2735-48b8-9039-5ff5f92114a0"
+                },
+                {
+                  "group": "right",
+                  "id": "b195cb97-438f-4be7-b662-4c82a57d9138"
+                },
+                {
+                  "group": "bottom",
+                  "id": "77078f9c-69e2-46d1-9b56-bae607169fbb"
+                },
+                {
+                  "group": "left",
+                  "id": "a9c50fa0-86ca-472b-b195-e564204a6e0c"
+                }
+              ]
+            },
+            "id": "de5fb0c3-9f4a-4acf-b99d-51c544a551c7",
+            "data": {
+              "type": "tm.Store",
+              "name": "Thrid Party OTP",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 10,
+              "y": -260
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 13,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "72cf7830-744c-4ea9-9de4-462dff6d42b6"
+                },
+                {
+                  "group": "right",
+                  "id": "917717c1-2c91-4b84-88cf-0ebc73460ba1"
+                },
+                {
+                  "group": "bottom",
+                  "id": "17a22219-5c96-436a-b350-a6a30213124b"
+                },
+                {
+                  "group": "left",
+                  "id": "de7507c6-1d17-4f22-8dca-9165cc5a6673"
+                }
+              ]
+            },
+            "id": "0b9f0c37-08a9-42d5-838e-da91eec07106",
+            "data": {
+              "type": "tm.Actor",
+              "name": "Actor",
+              "description": "Pengguna aplikasi",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "providesAuthentication": false,
+              "threats": [
+                {
+                  "id": "a8bac10e-b477-41b4-a608-39480dd0b5ef",
+                  "title": "Phishing OTP",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Spoofing",
+                  "description": "Penyerang memanipulasi user agar memberikan OTP.",
+                  "mitigation": "SC-02 : Rate Limiting Login/OTP, Batasi percobaan login/OTP untuk cegah brute force.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": "8"
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 6,
+                "repudiation": 0
+              }
+            }
+          },
+          {
+            "position": {
+              "x": 721.25,
+              "y": -130
+            },
+            "size": {
+              "width": 110,
+              "height": 50
+            },
+            "attrs": {
+              "text": {
+                "text": "Trust Boundaries"
+              }
+            },
+            "visible": true,
+            "shape": "td-text-block",
+            "zIndex": 14,
+            "id": "f2a2a819-9e7f-4635-83a9-0eb1ed965b37",
+            "data": {
+              "type": "tm.Text",
+              "name": "Trust Boundaries",
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 890,
+              "y": 60
+            },
+            "size": {
+              "width": 120,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Redis"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 15,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "a47b66e6-5687-4c04-addd-f9f454a99b39"
+                },
+                {
+                  "group": "right",
+                  "id": "1fde5795-64e6-4496-9751-f844f27a1c3b"
+                },
+                {
+                  "group": "bottom",
+                  "id": "a5f83160-1734-4b78-bf67-45107406ae0c"
+                },
+                {
+                  "group": "left",
+                  "id": "ee0651ee-5ce8-4ede-bf2c-08c509f8acc2"
+                }
+              ]
+            },
+            "id": "8cb728e9-fc80-47bd-9505-8e41aecb0615",
+            "data": {
+              "type": "tm.Store",
+              "name": "Redis",
+              "description": "",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false,
+              "threats": []
+            }
+          },
+          {
+            "position": {
+              "x": 270,
+              "y": -160
+            },
+            "size": {
+              "width": 110,
+              "height": 90
+            },
+            "attrs": {
+              "text": {
+                "text": "Frontend"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 16,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "04d4b14b-1eb8-4d3e-ba93-76148a1711de"
+                },
+                {
+                  "group": "right",
+                  "id": "02566ba8-25c5-4195-80d8-c16f108489dd"
+                },
+                {
+                  "group": "bottom",
+                  "id": "728623f6-db80-405e-a9f7-118a3d6ecdd0"
+                },
+                {
+                  "group": "left",
+                  "id": "fbd17456-ad64-428b-8174-f415cf7cd4ae"
+                }
+              ]
+            },
+            "id": "61076da4-c051-4f50-8e4b-2c91270ed658",
+            "data": {
+              "type": "tm.Process",
+              "name": "Frontend",
+              "description": "Form input nomor telepon dan OTP",
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "c2bc13ab-b01f-4cc2-917d-8cd1f6c17b14",
+                  "title": "New STRIDE threat",
+                  "status": "Open",
+                  "severity": "TBD",
+                  "type": "Spoofing",
+                  "description": "Provide a description for this threat",
+                  "mitigation": "Provide remediation for this threat or a reason if status is N/A",
+                  "modelType": "STRIDE",
+                  "new": true,
+                  "number": 3,
+                  "score": ""
+                }
+              ]
+            },
+            "tools": {
+              "items": [
+                "boundary",
+                "button-remove"
+              ],
+              "name": null
+            }
+          }
+        ]
       },
       {
         "id": 1,
